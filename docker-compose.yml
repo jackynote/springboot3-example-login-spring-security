@@ -1,0 +1,16 @@
+version: "3.6"
+
+networks:
+  travalapay-nk:
+    driver: bridge
+
+services:
+  postgres:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: jackynote.pro
+      POSTGRES_DB: springboot3-demo-login-spring-security
+    command: -c synchronous_commit=off --max-connections=200 --shared-buffers=4GB --work-mem=20MB
+    ports:
+      - 5433:5432
